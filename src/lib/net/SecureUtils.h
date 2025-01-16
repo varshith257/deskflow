@@ -20,7 +20,7 @@
 
 #include "FingerprintData.h"
 #include <cstdint>
-#include <openssl/ossl_typ.h>
+#include <openssl/ossl_types.h>
 #include <string>
 #include <vector>
 
