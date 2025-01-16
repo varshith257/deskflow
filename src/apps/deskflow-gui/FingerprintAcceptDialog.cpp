@@ -34,15 +34,15 @@ FingerprintAcceptDialog::FingerprintAcceptDialog(
     ui_->label_sha1_fingerprint_full->hide();
   } else {
     ui_->label_sha1_fingerprint_full->setText(
-        QString::fromStdString(deskflow::format_ssl_fingerprint(fingerprint_sha1.data))
+        QString::fromStdString(deskflow::format_ssl_fingerprint(fingerprint_sha1.data()))
     );
   }
 
   ui_->label_sha256_fingerprint_full->setText(
-      QString::fromStdString(deskflow::format_ssl_fingerprint_columns(fingerprint_sha256.data))
+      QString::fromStdString(deskflow::format_ssl_fingerprint_columns(fingerprint_sha256.data()))
   );
   ui_->label_sha256_fingerprint_randomart->setText(
-      QString::fromStdString(deskflow::create_fingerprint_randomart(fingerprint_sha256.data))
+      QString::fromStdString(deskflow::create_fingerprint_randomart(fingerprint_sha256.data()))
   );
 
   QString explanation;
