@@ -19,9 +19,9 @@
 #ifndef DESKFLOW_LIB_NET_FINGERPRINT_DATA_H
 #define DESKFLOW_LIB_NET_FINGERPRINT_DATA_H
 
+#include <cstdint>
 #include <string>
 #include <vector>
-#include <cstdint>
 
 namespace deskflow {
 
