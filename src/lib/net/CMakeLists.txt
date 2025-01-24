@@ -16,6 +16,10 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 add_library(net STATIC
+  FingerprintData.cpp
+  FingerprintData.h
+  FingerprintDatabase.cpp
+  FingerprintDatabase.h
   IDataSocket.cpp
   IDataSocket.h
   IListenSocket.h
@@ -28,6 +32,8 @@ add_library(net STATIC
   SecureListenSocket.h
   SecureSocket.cpp
   SecureSocket.h
+  SecureUtils.cpp
+  SecureUtils.h
   SocketMultiplexer.cpp
   SocketMultiplexer.h
   TCPListenSocket.cpp
@@ -60,8 +66,8 @@ add_library(net STATIC
 target_link_libraries(
   net
   PUBLIC OpenSSL::SSL OpenSSL::Crypto
-  PRIVATE mt io)
+  PRIVATE mt base io)
 
 if(WIN32)
-  target_link_libraries(net PRIVATE Crypt32 ws2_32)
+  target_link_libraries(net PRIVATE Crypt32 ws2_32 OpenSSL::applink)
 endif()
