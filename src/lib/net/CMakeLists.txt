@@ -64,10 +64,9 @@ add_library(net STATIC
 )
 
 target_link_libraries(
-  base
   net
   PUBLIC OpenSSL::SSL OpenSSL::Crypto
-  PRIVATE mt io)
+  PRIVATE mt base io)
 
 if(WIN32)
   target_link_libraries(net PRIVATE Crypt32 ws2_32 OpenSSL::applink)
