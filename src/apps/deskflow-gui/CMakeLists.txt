@@ -118,6 +118,7 @@ target_link_libraries(
   Qt6::Core
   Qt6::Widgets
   Qt6::Network)
+  net 
 
 if(WIN32)
   set_target_properties(${target} PROPERTIES LINK_FLAGS "/NODEFAULTLIB:LIBCMT")
