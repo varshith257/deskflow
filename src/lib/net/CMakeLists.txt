@@ -64,6 +64,7 @@ add_library(net STATIC
 )
 
 target_link_libraries(
+  base
   net
   PUBLIC OpenSSL::SSL OpenSSL::Crypto
   PRIVATE mt io)
