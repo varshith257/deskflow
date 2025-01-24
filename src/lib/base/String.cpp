@@ -259,7 +259,7 @@ std::string to_hex(const std::vector<std::uint8_t> &subject, int width, const ch
   return ss.str();
 }
 
-td::vector<std::uint8_t> from_hex(const std::string &data)
+std::vector<std::uint8_t> from_hex(const std::string &data)
 {
   std::vector<std::uint8_t> result;
   result.reserve(data.size() / 2);
