@@ -80,6 +80,7 @@ elseif(UNIX)
 endif()
 
 add_library(${lib_name} STATIC  ${PLATFORM_CODE}
+  AppRole.h
   App.cpp
   App.h
   AppUtil.cpp
