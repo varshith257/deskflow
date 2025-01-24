@@ -70,5 +70,6 @@ target_link_libraries(
   PRIVATE mt io)
 
 if(WIN32)
+  target_link_libraries(net OpenSSL::applink)
   target_link_libraries(net PRIVATE Crypt32 ws2_32)
 endif()
