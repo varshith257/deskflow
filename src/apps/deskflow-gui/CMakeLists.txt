@@ -85,6 +85,9 @@ add_executable(${target} WIN32 MACOSX_BUNDLE
   dialogs/AddClientDialog.cpp
   dialogs/AddClientDialog.h
   dialogs/AddClientDialog.ui
+  dialogs/FingerprintAcceptDialog.cpp
+  dialogs/FingerprintAcceptDialog.h
+  dialogs/FingerprintAcceptDialog.ui
   dialogs/HotkeyDialog.cpp
   dialogs/HotkeyDialog.h
   dialogs/HotkeyDialog.ui
@@ -112,6 +115,7 @@ add_executable(${target} WIN32 MACOSX_BUNDLE
 target_link_libraries(
   ${target}
   gui
+  net 
   Qt6::Core
   Qt6::Widgets
   Qt6::Network)

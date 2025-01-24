@@ -114,15 +114,10 @@ add_library(${target} STATIC
 
 target_link_libraries(
   ${target}
+  base
+  arch
   platform
   Qt6::Core
   Qt6::Widgets
   Qt6::Network)
 
-if(WIN32)
-  target_link_libraries(
-    ${target}
-    base
-    arch
-  )
-endif()
