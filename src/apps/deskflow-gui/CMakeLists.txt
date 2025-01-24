@@ -115,10 +115,10 @@ add_executable(${target} WIN32 MACOSX_BUNDLE
 target_link_libraries(
   ${target}
   gui
+  net 
   Qt6::Core
   Qt6::Widgets
   Qt6::Network)
-  net 
 
 if(WIN32)
   set_target_properties(${target} PROPERTIES LINK_FLAGS "/NODEFAULTLIB:LIBCMT")
