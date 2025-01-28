@@ -1,13 +1,14 @@
 ![Deskflow](https://github.com/user-attachments/assets/f005b958-24df-4f4a-9bfd-4f834dae59d6)
 
-> [!NOTE]
-> **Deskflow** is the official upstream project for [Synergy](https://symless.com/synergy).
+> [!TIP]
+> [Synergy](https://symless.com/synergy) sponsors the Deskflow project by contributing code and providing financial support.
+> 
+> - [**Bounties**](https://github.com/deskflow/deskflow/issues?q=is%3Aissue%20state%3Aopen%20label%3A%22%F0%9F%92%8E%20bounty%22) - Earn while contributing to open source
+> - [**Rewarded**](https://github.com/deskflow/deskflow/issues?q=label%3A%22%F0%9F%92%B0%20rewarded%22%20) - Issues with a rewarded bounty
+> 
+> **Deskflow** is the official upstream project for Synergy.
 > Purchasing a Synergy license is one way to support Deskflow’s growth and sustainability.
->
-> The Deskflow project was established to cultivate community-driven development where everyone can collaborate.
-> Synergy sponsors the Deskflow project by contributing code and providing financial support.
->
-> More info: [Relationship with Synergy](https://github.com/deskflow/deskflow/wiki/Relationship-with-Synergy)
+> Learn more: [Relationship with Synergy](https://github.com/deskflow/deskflow/wiki/Relationship-with-Synergy)
 
 **Deskflow** is a free and open source keyboard and mouse sharing app.
 Use the keyboard, mouse, or trackpad of one computer to control nearby computers,
@@ -25,6 +26,7 @@ To use Deskflow you can use one of our [packages](https://github.com/deskflow/de
 [![GitHub commit activity](https://img.shields.io/github/commit-activity/m/deskflow/deskflow?logo=github)](https://github.com/deskflow/deskflow/commits/master/)
 [![GitHub top language](https://img.shields.io/github/languages/top/deskflow/deskflow?logo=github)](https://github.com/deskflow/deskflow/commits/master/)
 [![GitHub License](https://img.shields.io/github/license/deskflow/deskflow?logo=github)](LICENSE)
+[![REUSE status](https://api.reuse.software/badge/github.com/deskflow/deskflow)](https://api.reuse.software/info/github.com/deskflow/deskflow)
 
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=deskflow_deskflow&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=deskflow_deskflow)
 [![Coverage](https://sonarcloud.io/api/project_badges/measure?project=deskflow_deskflow&metric=coverage)](https://sonarcloud.io/summary/new_code?id=deskflow_deskflow)
@@ -34,7 +36,6 @@ To use Deskflow you can use one of our [packages](https://github.com/deskflow/de
 [![CI](https://github.com/deskflow/deskflow/actions/workflows/continuous-integration.yml/badge.svg)](https://github.com/deskflow/deskflow/actions/workflows/continuous-integration.yml)
 [![CodeQL Analysis](https://github.com/deskflow/deskflow/actions/workflows/codeql-analysis.yml/badge.svg)](https://github.com/deskflow/deskflow/actions/workflows/codeql-analysis.yml)
 [![SonarCloud Analysis](https://github.com/deskflow/deskflow/actions/workflows/sonarcloud-analysis.yml/badge.svg)](https://github.com/deskflow/deskflow/actions/workflows/sonarcloud-analysis.yml)
-
 ## Project Values
 
 - Motivated by the community interests (not business-driven)
@@ -187,4 +188,4 @@ Deskflow is made by possible by these contributors.
 
 ## License
 
-This project is licensed under [GPL-2.0](LICENSE) with an [OpenSSL exception](LICENSE_EXCEPTION).
+This project is licensed under [GPL-2.0](LICENSE) with an [OpenSSL exception](LICENSES/LicenseRef-OpenSSL-Exception.txt).

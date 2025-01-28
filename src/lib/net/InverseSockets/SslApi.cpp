@@ -1,3 +1,9 @@
+/*
+ * Deskflow -- mouse and keyboard sharing utility
+ * SPDX-FileCopyrightText: (C) 2015 - 2022 Symless Ltd.
+ * SPDX-License-Identifier: GPL-2.0-only WITH LicenseRef-OpenSSL-Exception
+ */
+
 #include "SslApi.h"
 #include "SslLogger.h"
 
@@ -221,7 +227,7 @@ int SslApi::getErrorCode(int status) const
 void SslApi::formatFingerprint(std::string &fingerprint) const
 {
   // to hexidecimal
-  deskflow::string::toHex(fingerprint, 2);
+  fingerprint = deskflow::string::toHex(fingerprint, 2);
   // all uppercase
   deskflow::string::uppercase(fingerprint);
   // add colon to separate each 2 charactors

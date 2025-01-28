@@ -1,22 +1,12 @@
 /*
  * Deskflow -- mouse and keyboard sharing utility
- * Copyright (C) 2014-2016 Symless Ltd.
- *
- * This package is free software; you can redistribute it and/or
- * modify it under the terms of the GNU General Public License
- * found in the file LICENSE that should have accompanied this file.
- *
- * This package is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License
- * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ * SPDX-FileCopyrightText: (C) 2025 Deskflow Developers
+ * SPDX-FileCopyrightText: (C) 2012 - 2016 Symless Ltd.
+ * SPDX-FileCopyrightText: (C) 2002 Chris Schoeneman
+ * SPDX-License-Identifier: GPL-2.0-only WITH LicenseRef-OpenSSL-Exception
  */
 
 #include "base/String.h"
-#include "arch/Arch.h"
 #include "common/stdvector.h"
 
 #include <algorithm>
@@ -132,7 +122,7 @@ std::string sprintf(const char *fmt, ...)
     // try printing into the buffer
     va_list args;
     va_start(args, fmt);
-    int n = ARCH->vsnprintf(buffer, len, fmt, args);
+    int n = vsnprintf(buffer, len, fmt, args);
     va_end(args);
 
     // if the buffer wasn't big enough then make it bigger and try again
@@ -177,7 +167,7 @@ std::string removeFileExt(std::string filename)
   return filename.substr(0, dot);
 }
 
-void toHex(std::string &subject, int width, const char fill)
+std::string toHex(const std::string &subject, int width, const char fill)
 {
   std::stringstream ss;
   ss << std::hex;
@@ -185,7 +175,66 @@ void toHex(std::string &subject, int width, const char fill)
     ss << std::setw(width) << std::setfill(fill) << (int)(unsigned char)subject[i];
   }
 
-  subject = ss.str();
+  return ss.str();
+}
+
+// clang-format off
+int fromHexChar(char c)
+{
+  switch (c) {
+    case '0': return 0;
+    case '1': return 1;
+    case '2': return 2;
+    case '3': return 3;
+    case '4': return 4;
+    case '5': return 5;
+    case '6': return 6;
+    case '7': return 7;
+    case '8': return 8;
+    case '9': return 9;
+    case 'a':
+    case 'A': return 10;
+    case 'b':
+    case 'B': return 11;
+    case 'c':
+    case 'C': return 12;
+    case 'd':
+    case 'D': return 13;
+    case 'e':
+    case 'E': return 14;
+    case 'f':
+    case 'F': return 15;
+    default:  return -1;
+  }
+  return -1;
+}
+// clang-format on
+
+std::vector<uint8_t> fromHex(const std::string &hexString)
+{
+  std::vector<uint8_t> result;
+  result.reserve(hexString.size() / 2);
+
+  size_t i = 0;
+  while (i < hexString.size()) {
+    if (hexString[i] == ':') {
+      i++;
+      continue;
+    }
+
+    if (i + 2 > hexString.size()) {
+      return {}; // uneven character count follows, it's unclear how to interpret it
+    }
+
+    auto high = fromHexChar(hexString[i]);
+    auto low = fromHexChar(hexString[i + 1]);
+    if (high < 0 || low < 0) {
+      return {};
+    }
+    result.push_back(high * 16 + low);
+    i += 2;
+  }
+  return result;
 }
 
 void uppercase(std::string &subject)

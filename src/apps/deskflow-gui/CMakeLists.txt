@@ -1,18 +1,6 @@
-# Deskflow -- mouse and keyboard sharing utility
-# Copyright (C) 2024 - 2025 Chris Rizzitello <sithlord48@gmail.com>
-# Copyright (C) 2024 Symless Ltd.
-#
-# This package is free software; you can redistribute it and/or
-# modify it under the terms of the GNU General Public License
-# found in the file LICENSE that should have accompanied this file.
-#
-# This package is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program.  If not, see <http://www.gnu.org/licenses/>.
+# SPDX-FileCopyrightText: 2024 - 2025 Chris Rizzitello <sithlord48@gmail.com>
+# SPDX-FileCopyrightText: 2024 Symless Ltd
+# SPDX-License-Identifier: MIT
 
 if(APPLE)
   set(target Deskflow)
@@ -46,7 +34,14 @@ elseif(APPLE)
     ${CMAKE_CURRENT_BINARY_DIR}/deskflow.plist
     @ONLY
   )
-  set(platform_extra ../res/Deskflow.icns ${PROJECT_SOURCE_DIR}/LICENSE ${PROJECT_SOURCE_DIR}/LICENSE_EXCEPTION)
+
+  file(COPY_FILE
+    ${PROJECT_SOURCE_DIR}/LICENSES/LicenseRef-OpenSSL-Exception.txt
+    ${CMAKE_CURRENT_BINARY_DIR}/LICENSE_EXCEPTION
+    ONLY_IF_DIFFERENT
+  )
+
+  set(platform_extra ../res/Deskflow.icns ${CMAKE_SOURCE_DIR}/LICENSE ${CMAKE_CURRENT_BINARY_DIR}/LICENSE_EXCEPTION)
   set_source_files_properties(${platform_extra} PROPERTIES MACOSX_PACKAGE_LOCATION "Resources")
 endif()
 
